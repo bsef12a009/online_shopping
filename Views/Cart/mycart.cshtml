@@ -1,0 +1,83 @@
+﻿@model List<HomeShop.Models.Cart>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>mycart</title>
+    <script>
+        $(document).ready(function ()
+        {
+            $("#cart").hide();
+            $("#cart").slideDown("slow");
+            $("#badge").text(@Model.Count);
+        });
+    </script>
+</head>
+<body style="background-color: #848484; ">
+    
+    <div class="modal-dialog" id="cart" >
+
+        <div class="modal-content" data-toggle="modal" style="background-color:black">
+            <div class="modal-body">
+
+                <h2 class="modal-title" style="color:#F78181; margin-top: 30px; text-align: center; ">YOUR CART</h2>
+                <br />
+                <br />
+                @if (Model.Count == 0)
+                {
+                    <p style="color: #D8D8D8; text-align: center; font-size:18px">Your cart is currently empty.</p>
+                    <script>
+                        $("#placeOrd").hide();
+                </script>
+                }
+                else
+                {
+                    <script>
+                        $("#placeOrd").show();
+                </script>
+                    foreach (var x in Model)
+                    {
+
+                        if (x.Item != null)
+                        {
+                            <div style="margin-bottom:50px">
+
+                                <img src="@x.Item.Image" alt="ADVENT ROYALS ORIGINAL T-SHIRT" />
+                                <p style="color:red;float:right">
+                                    <label style="color:yellow">Name:</label> @x.Item.Name
+                                    <br />
+                                    <label style="color:yellow">Price:</label> @x.price
+                                    <br />
+                                    <label style="color:yellow">Quantity:</label>@x.quantity
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <a href="/Cart/cancel/@x.Id"><label>Cancel</label></a>
+                                </p>
+                            </div>
+                        }
+
+
+                    }
+                    
+                    <form action="/Cart/confirmOrder" method="post" >
+
+                        <input id="placeOrd" type="submit" value="Place Order" style="float:right" />
+                    </form> 
+                                            
+                    <br />
+                    <br />
+                }
+
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

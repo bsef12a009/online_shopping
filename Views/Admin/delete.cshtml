@@ -1,0 +1,108 @@
+﻿@model HomeShop.Models.Item
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>delete</title>
+    <style>
+        #f_name {
+            border-style: hidden;
+        }
+
+        #u_name {
+            border-style: hidden;
+        }
+
+        #phone {
+            border-style: hidden;
+        }
+
+        #address {
+            border-style: hidden;
+        }
+
+        #u_pass {
+            border-style: hidden;
+        }
+
+        #email {
+            border-style: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="col-lg-12 text-center" style="width:100%;height:70% ; background-color:whitesmoke">
+            <form action="~/Admin/deleteItem" id="activate_account" method="post">
+
+                <h2>DELETE ITEM</h2>
+                <br>
+                <br>
+                <br>
+
+                <label for="Id" class="form-label--hidden text-center">
+                    <input type="text" name="Id" id="ID" placeholder="Id" autofocus />
+                </label>
+
+                <br>
+                <br>
+
+                <label for="Name" class="form-label--hidden text-center">
+                    <input type="text" name="Name" id="name" placeholder="name" autofocus />
+                </label>
+
+                <br>
+                <br>
+
+                <label for="Image" class="form-label--hidden text-center">
+                    <input type="text" value="" name="Image" id="img" placeholder="image path">
+                </label>
+
+                <br>
+                <br>
+
+                <label for="quantity" class="form-label--hidden text-center">
+                    <input type="text" name="quantity" id="quantity" placeholder="quantity" autofocus />
+                </label>
+
+                <br>
+                <br>
+
+                <label for="price" class="form-label--hidden text-center">
+                    <input type="text" name="price" id="price" placeholder="price" autofocus />
+                </label>
+
+                <br>
+                <br>
+
+                <label for="category" class="form-label--hidden text-center">
+                    <input type="text" name="category" id="category" placeholder="category" autofocus />
+                </label>
+
+
+                <br>
+                <br>
+
+                <br>
+
+
+
+                <div class="text-center">
+                    <p style="margin-left:70px">
+                        <input type="submit" class="btn" value="delete">
+                    </p>
+                </div>
+
+
+            </form>
+
+        </div>
+    </div>
+</body>
+</html>
+

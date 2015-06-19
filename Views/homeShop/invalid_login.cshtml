@@ -1,0 +1,102 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>login</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/simple-sidebar.css" rel="stylesheet">
+
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <style>
+        #logo {
+            font-family: 'Buxton Sketch';
+            color: whitesmoke;
+            font-size: 40px;
+            margin-top: 60px;
+            margin-left: 10px;
+        }
+
+        .my_menu {
+            margin-left: 55px;
+            margin-right: 65px;
+        }
+
+        .cart {
+            margin-left: 35px;
+            margin-right: 75px;
+        }
+
+        .m_top {
+            margin-top: 40px;
+        }
+
+        .carousel-inner > .item > img,
+        .carousel-inner > .item > a > img {
+            width: 100%;
+            margin: auto;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="col-lg-12 text-center" style="width:30%; margin-left:30%">
+        <form action="~/homeShop/confirm_Login" id="login" method="post">
+
+            <h1>Login</h1>
+            <br>
+            <br>
+
+            <div class="alert alert-danger text-center">
+                <strong>Invalid!</strong> Wrong username or password!
+            </div>
+
+            <label for="u_name" class="text-center">
+                <input type="text" style="border-style:hidden" name="username" id="u_name" placeholder="username" autofocus />
+            </label>
+
+
+            <br>
+
+            <label for="u_password" class="text-center">
+                <input type="password" style="border-style:hidden" value="" name="password" id="u_pass" placeholder="password">
+            </label>
+
+            <br>
+            <br>
+
+
+            <div class="grid">
+
+                <div class="text-center">
+                    <a href="~/homeShop/CreateAccount" id="customer_register_link">Create account</a>
+                </div>
+            </div>
+
+            <br>
+            <br>
+
+
+
+            <div class="text-center">
+                <p>
+                    <input type="submit" class="btn" value="Sign In">
+                </p>
+            </div>
+
+        </form>
+
+    </div>
+
+</body>
+</html>

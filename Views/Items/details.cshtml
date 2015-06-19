@@ -1,0 +1,43 @@
+﻿@model HomeShop.Models.Item
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>details</title>
+    <script>
+
+    
+
+    </script></head>
+<body>
+
+    <form action="/Items/AddToCart/@Model.Id" method="post" class="@Model.Id" style="color: black; ">
+        <div class="row" style="background-color: #E6E6E6; ">
+            <div class="col-md-3" style="margin-top:70px; margin-bottom:100px">
+                <img src="@Model.Image" alt="ADVENT ROYALS ORIGINAL T-SHIRT" />
+            </div>
+            <div class="col-md-3" style="margin-top:250px;margin-left:20px">
+                <p class="text-center">
+                    @Model.Name
+                    <br />
+                    @Model.price
+
+
+
+
+                </p>
+            </div>
+            <div class="col-md-3" style="margin-top:250px">
+                <label>quantity <input type="text" id="q" name="quantity" value="1" style="width:20px"></label>
+                <input type="submit" value="Add to cart" style="background-color: black; color: white; float: right">
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>

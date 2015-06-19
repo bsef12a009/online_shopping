@@ -1,0 +1,117 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>K Royals</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/simple-sidebar.css" rel="stylesheet">
+
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <style>
+        #logo {
+            font-family: 'Buxton Sketch';
+            color: whitesmoke;
+            font-size: 40px;
+            margin-top: 60px;
+            margin-left: 10px;
+        }
+
+        .my_menu {
+            margin-left: 55px;
+            margin-right: 65px;
+        }
+
+        .cart {
+            margin-left: 35px;
+            margin-right: 75px;
+        }
+
+        .m_top {
+            margin-top: 40px;
+        }
+
+        .carousel-inner > .item > img,
+        .carousel-inner > .item > a > img {
+            width: 100%;
+            margin: auto;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="wrapper">
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand ">
+                    <a href="~/homeShop/Home" id="logo">
+                        K ROYALS
+                    </a>
+                </li>
+
+                @if (Session["username"] == null)
+                {
+                <li>
+                    <a href="~/homeShop/login_pg" class="my_menu">LOG IN</a>
+                </li> }
+
+                else
+                {
+                    <li>
+                        <a href="~/Customer/profile" class="my_menu">@Session["username"]</a>
+                    </li>
+                    <li>
+                        <a href="~/homeShop/Home" class="my_menu">LOG OUT</a>
+                    </li>
+                }
+
+
+
+                <li>
+                    <a href="~/Company/customers" class="my_menu m_top">customer list</a>
+                </li>
+                <li>
+                    <a href="~/Company/orders" class="my_menu">order list</a>
+                </li>
+
+
+            </ul>
+        </div>
+
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+
+            <footer>
+                <h5 style="text-align:center; margin-top:100px">Copyright &copy; 2015 K Royals <br></h5>
+                <div style="text-align:center">
+                    <small>
+                        A PROJECT BY<br>
+                        KHIZRA SARMAD KHAN<br>
+                        BSEF12A009<br>
+                        PUCIT<br>
+                        <a href="~/homeShop/About_Us" style="text-decoration:none">ABOUT </a>
+
+                        <a href="~/Contact/contact" style="text-decoration:none"> CONTACT</a>
+                    </small>
+
+                </div>
+            </footer>
+        </div>
+    </div>
+
+
+</body>
+</html>

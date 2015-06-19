@@ -1,0 +1,108 @@
+﻿@model List<HomeShop.Models.Item>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>T-SHIRTS</title>
+</head>
+<body>
+    <div>
+        <header class="section-header text-center">
+            <h2 class="section-header__title">T-SHIRTS</h2>
+            
+        </header>
+
+        <div class="row" style="margin-top:20px">
+
+            @for (int i = 0; i < 3; i++)
+            {
+                if (Model != null)
+                {
+                    <div class="col-md-3 " style="margin-left:50px" id="@Model[i].Id">
+                        <a href="~/Items/details/@Model[i].Id" class="product">
+                            <img src="@Model[i].Image" alt="ADVENT ROYALS ORIGINAL T-SHIRT" />
+                            <p class="@Model[i].Id" style="color:black">
+                                @Model[i].Name
+                                <br />
+                                @Model[i].price
+                            </p>
+                        </a>
+
+                    </div>
+                }
+            }
+
+
+        </div>
+
+        <div class="row" style="margin-top:20px">
+
+            @for (int i = 3; i < 6; i++)
+            {
+                if (Model != null)
+                {
+                    <div class="col-md-3 " style="margin-left:50px" id="@Model[i].Id">
+                        <a href="#" class="product">
+                            <img src="@Model[i].Image" alt="ADVENT ROYALS ORIGINAL T-SHIRT" />
+                            <p class="@Model[i].Id" style="color:black">
+                                @Model[i].Name
+                                <br />
+                                @Model[i].price
+                            </p>
+                        </a>
+
+                    </div>
+                }
+            }
+        </div>
+
+        <div class="row" style="margin-top:20px">
+
+            @for (int i = 6; i < 9; i++)
+            {
+                if (Model != null)
+                {
+                    <div class="col-md-3 " style="margin-left:50px" id="@Model[i].Id">
+                        <a href="#" class="product">
+                            <img src="@Model[i].Image" alt="ADVENT ROYALS ORIGINAL T-SHIRT" />
+                            <p class="@Model[i].Id" style="color:black">
+                                @Model[i].Name
+                                <br />
+                                @Model[i].price
+                            </p>
+                        </a>
+
+                    </div>
+                }
+            }
+        </div>
+
+
+
+    </div>
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        if (Model != null)
+        {
+            <script>
+                $(document).ready(function () {
+
+                    $(".@Model[i].Id").hide();
+
+                    $("#@Model[i].Id").on('mouseover', function () {
+                        $(".@Model[i].Id").show();
+                        $("#@Model[i].Id").on('mouseout', function () {
+                            $(".@Model[i].Id").hide();
+                        });
+                    });
+                });
+            </script>
+        }
+    }
+</body>
+</html>

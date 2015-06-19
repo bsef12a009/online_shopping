@@ -1,0 +1,54 @@
+﻿@model HomeShop.Models.Contact
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>contact</title>
+</head>
+<body>
+    <div class="grid">
+
+        <div>
+
+            <h2 class="text-center">Contact</h2>
+
+
+            <div class="text-center">
+                <p>970 Fairfield, Lahore<br /> Allen, TX 75013</p>
+                <p>bsef12a009@pucit.edu.pk<br /> 0423-7574572</p>
+            </div>
+
+
+            <div>
+                <form accept-charset="UTF-8" action="/Contact/sendmsg" class="contact-form" method="post">
+                    <input name="form_type" type="hidden" value="contact" /><input name="utf8" type="hidden" value="✓" />
+
+
+                    <div id="contactFormWrapper" style="margin-left:250px">
+                        <br>
+                        <br>
+                        <label for="id" class="text-center">
+                            <input type="text" style="border-style:hidden" name="Id" id="c_id" placeholder="Customer ID" autofocus />
+                        </label>
+
+                        <br>
+
+                        <textarea rows="10" style="border-style:hidden; width:400px; height:100px" id="contactFormMessage" name="message_details" placeholder="Message"></textarea>
+                        <br>
+                        <br>
+                        <input style="margin-left:400px; background-color:black; color:white" type="submit" class="btn right" value="Send">
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

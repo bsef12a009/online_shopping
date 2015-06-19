@@ -1,0 +1,216 @@
+﻿@model HomeShop.Models.Customer
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CreateAccount</title>
+    <style>
+        #f_name {
+            border-style: hidden;
+        }
+
+        #u_name {
+            border-style: hidden;
+        }
+
+        #phone {
+            border-style: hidden;
+        }
+
+        #address {
+            border-style: hidden;
+        }
+
+        #u_pass {
+            border-style: hidden;
+        }
+
+        #email {
+            border-style: hidden;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $("#u_name").on("click", function ()
+            {
+                $("#alert_msg").hide();
+            });
+
+            $("#alert_msg").hide();
+            $("#u_name").on("focusout", function ()
+            {
+                var s = $("#u_name").val();
+                $.getJSON("/homeShop/checkUsername?u_name=" + s,
+                    function (d) {
+                        if (d) {
+                            $("#alert_msg").hide();
+
+                        }
+                        else
+                        {
+                            $("#alert_msg").show();
+                        }
+
+                });
+            });
+        });
+    </script>
+
+</head>
+
+    <body>
+
+            <div class="col-lg-12 text-center" style="width:30%; margin-left:30%">
+                <form action="~/homeShop/ActivateAccount" id="activate_account" method="post">
+
+                    <h2>CREATE ACCOUNT</h2>
+                    <br>
+                    <br>
+                    <br>
+
+                    <label for="f_name" class="form-label--hidden text-center">
+                        <input type="text"  name="c.name" id="f_name" placeholder="full_name" autofocus />
+                    </label>
+
+                    <br>
+                    <br>
+                    <div id="alert_msg" class="alert alert-danger text-center">
+                        Username Not <strong>Available!</strong>
+                    </div>
+                    <label for="u_name" class="form-label--hidden text-center">
+                        <input type="text"  name="lg.username" id="u_name" placeholder="username" autofocus />
+                    </label>
+
+                    <br>
+                    <br>
+
+                    <label for="u_password" class="form-label--hidden text-center">
+                        <input type="password"  value="" name="lg.password" id="u_pass" placeholder="password">
+                    </label>
+
+                    <br>
+                    <br>
+
+                    <label for="u_name" class="form-label--hidden text-center">
+                        <input type="text"  name="c.address" id="address" placeholder="Address" autofocus />
+                    </label>
+
+                    <br>
+                    <br>
+
+                    <label for="u_name" class="form-label--hidden text-center">
+                        <input type="text"  name="c.phone" id="phone" placeholder="phone" autofocus />
+                    </label>
+
+                    <br>
+                    <br>
+
+                    <label for="u_name" class="form-label--hidden text-center">
+                        <input type="text"  name="c.email" id="email" placeholder="email" autofocus />
+                    </label>
+
+
+                    <br>
+                    <br>
+
+                    <br>
+
+
+
+                    <div class="text-center">
+                        <p style="margin-left:70px">
+                            <input type="submit" class="btn" value="CREATE">
+                        </p>
+                    </div>
+
+
+                </form>
+
+                <div class="grid">
+                    <div class="grid-item one-half text-center">
+                        <a href="~/homeShop/Home" id="customer_register_link" style="margin-left:70px">Return to Store</a>
+                    </div>
+                </div>
+
+            </div>
+        </body>
+        </html>
+
+@*<body>
+    <div class="col-lg-12 text-center" style="width:30%; margin-left:30%">
+        
+@using (Html.BeginForm("ActivateAccount", "homeShop", FormMethod.Post))
+{ 
+
+            <h2>CREATE ACCOUNT</h2>
+            <br>
+            <br>
+            <br>
+
+
+            @Html.TextBoxFor(m => m.name, new { id = "f_name", placeholder = "Full_name", autofocus = "" })
+
+            <br>
+            <br>
+
+            @Html.LabelFor(l => l.Login.username, new { @class = "form-label--hidden text-center" })
+            @Html.TextBoxFor(m => m.Login.username, new { id = "u_name", placeholder = "username", autofocus = "" })
+            
+            <br>
+            <br>
+
+            @Html.LabelFor(l => l.Login.password, new { @class = "form-label--hidden text-center" })   
+            @Html.TextBoxFor(m => m.Login.password, new { id = "u_pass", placeholder = "password", autofocus = "" })
+
+
+            <br>
+            <br>
+    
+            @Html.LabelFor(l => l.address, new { @class = "form-label--hidden text-center" })
+            @Html.TextBoxFor(m => m.address, new { id = "address", placeholder = "Address", autofocus = "" })
+
+
+            <br>
+            <br>
+
+                @Html.LabelFor(l => l.phone, new { @class = "form-label--hidden text-center" })
+            @Html.TextBoxFor(m => m.phone, new { id = "phone", placeholder = "Phone", autofocus = ""})
+
+    
+            <br>
+            <br>
+    
+            @Html.TextBoxFor(m => m.email, new { id = "email", placeholder = "Email", autofocus = ""})
+            
+    
+
+            <br>
+            <br>
+
+            <br>
+
+
+
+            <div class="text-center">
+                <p style="margin-left:70px">
+                    <input type="submit" class="btn" value="CREATE">
+                </p>
+            </div>
+
+}
+
+
+        <div class="grid">
+            <div class="grid-item one-half text-center">
+                <a href="~/homeShop/Home" id="customer_register_link" style="margin-left:70px">Return to Store</a>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>*@

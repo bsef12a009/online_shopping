@@ -1,0 +1,101 @@
+﻿@model HomeShop.Models.Customer
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>usernameNotAvailable</title>
+    <script>
+        $(document).ready(function ()
+        {
+            $("#u_name").on("click", function ()
+            {
+                $("#alert_msg").hide();
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="col-lg-12 text-center" style="width:30%; margin-left:30%">
+        <form action="~/homeShop/ActivateAccount" id="activate_account" method="post">
+
+            <h2>CREATE ACCOUNT</h2>
+            <br>
+            <br>
+            <br>
+
+            <label for="f_name" class="form-label--hidden text-center">
+                <input type="text" style="border-style:hidden" name="c.name" id="f_name" placeholder="full_name" autofocus />
+            </label>
+
+            <br>
+            <br>
+
+            <div id="alert_msg"  class="alert alert-danger text-center">
+                Username Not <strong>Available!</strong>
+            </div>
+
+            <label for="u_name" class="form-label--hidden text-center">
+                <input type="text" style="border-style:hidden" name="lg.username" id="u_name" placeholder="username" autofocus />
+            </label>
+
+            <br>
+            <br>
+
+            <label for="u_password" class="form-label--hidden text-center">
+                <input type="password" style="border-style:hidden" value="" name="lg.password" id="u_pass" placeholder="password">
+            </label>
+
+            <br>
+            <br>
+
+            <label for="u_name" class="form-label--hidden text-center">
+                <input type="text" style="border-style:hidden" name="c.address" id="address" placeholder="Address" autofocus />
+            </label>
+
+            <br>
+            <br>
+
+            <label for="u_name" class="form-label--hidden text-center">
+                <input type="text" style="border-style:hidden" name="c.phone" id="phone" placeholder="phone" autofocus />
+            </label>
+
+            <br>
+            <br>
+
+            <label for="u_name" class="form-label--hidden text-center">
+                <input type="text" style="border-style:hidden" name="c.email" id="email" placeholder="email" autofocus />
+            </label>
+
+
+            <br>
+            <br>
+
+            <br>
+
+
+
+            <div class="text-center">
+                <p style="margin-left:70px">
+                    <input type="submit" class="btn" value="CREATE">
+                </p>
+            </div>
+
+
+        </form>
+
+        <div class="grid">
+
+            <div class="grid-item one-half text-center">
+                <a href="~/homeShop/Home" id="customer_register_link" style="margin-left:70px">Return to Store</a>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
